@@ -1,0 +1,9 @@
+---
+- hosts: test
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: "installing"
+      package:
+        name: postgresql
+        state: latest
