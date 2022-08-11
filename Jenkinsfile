@@ -1,4 +1,4 @@
-def PROD_HOST= "4493ad94a23c.mylabserver.com"
+def PROD_HOST= "4493ad94a21c.mylabserver.com"
 pipeline{
     agent any
     stages{
