@@ -8,8 +8,7 @@ pipeline{
         }
         stage ('2') {
             steps{
-                sh 'chmod 777 hello.sh'
-                sh './hello.sh'
+                readFile 'test.yml'
             }
         }
     }
