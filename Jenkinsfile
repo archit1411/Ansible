@@ -1,3 +1,5 @@
+def PROD_IP=4493ad94a23c.mylabserver.com
+
 pipeline{
     agent any
     stages{
@@ -8,7 +10,8 @@ pipeline{
         }
         stage ('2') {
             steps{
-                readFile 'test.yml'
+                withCredentials([usernamePassword(credentialsId: 'webserverlogin', usernameVariable: 'USER', passwordVariable: 'PWD')]){
+                    sh "sshpass -p $PWD -v ssh -o StrictHostKeyChecking=no $USER@$PROD_IP \"echo LoggedIN\""
             }
         }
     }
